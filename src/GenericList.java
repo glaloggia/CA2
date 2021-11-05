@@ -1,7 +1,7 @@
 public interface GenericList<T> {
-    public void add(T i);
+    void add(T i);
 
-    public boolean get(int i);
+    T get(int i);
 
-    public int size();
+    int size();
 }
