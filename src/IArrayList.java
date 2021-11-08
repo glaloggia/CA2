@@ -1,11 +1,11 @@
-public class GenericArrayList<T> implements GenericList<T> {
+public class IArrayList<T> implements IList<T> {
     private T[] buffer;
     private int nextFreeLoc;
     private int currentCapacity;
 
     private static final int INITIAL_CAPACITY = 3;
 
-    public GenericArrayList() {
+    public IArrayList() {
         currentCapacity = INITIAL_CAPACITY;
         nextFreeLoc = 0;
         buffer = (T[]) new Object[currentCapacity];
@@ -29,8 +29,8 @@ public class GenericArrayList<T> implements GenericList<T> {
     }
 
     public T get(int index) {
-        if (index >= nextFreeLoc) {
-            return null;
+        if (index >= nextFreeLoc||index<0) {
+            throw new IndexOutOfBoundsException();
         }
         return buffer[index];
     }

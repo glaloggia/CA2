@@ -1,8 +1,8 @@
-public class GenericLinkedList<T> implements GenericList<T> {
+public class ILinkedList<T> implements IList<T> {
     Node head,tail;
     int size;
 
-    public GenericLinkedList() {
+    public ILinkedList() {
         head = null;
         tail = null;
         size = 0;
@@ -30,7 +30,7 @@ public class GenericLinkedList<T> implements GenericList<T> {
         Node current = head;
         int counter = 0;
 
-        if (i > this.size) return null;
+        if (i >= this.size||i<0) throw new IndexOutOfBoundsException();
 
         while (counter != i) {
             current = current.next;
@@ -44,6 +44,11 @@ public class GenericLinkedList<T> implements GenericList<T> {
     public int size() {
 
         return this.size;
+    }
+
+    @Override
+    public boolean isEmpty() {
+        return this.size==0;
     }
 
 
