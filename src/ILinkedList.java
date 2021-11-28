@@ -1,3 +1,5 @@
+import java.util.Iterator;
+
 public class ILinkedList<T> implements IList<T> {
     Node head,tail;
     int size;
@@ -25,6 +27,16 @@ public class ILinkedList<T> implements IList<T> {
         this.size++;
     }
 
+    @Override
+    public void add(int i, T t) {
+
+    }
+
+    @Override
+    public T set(int i, T t) {
+        return null;
+    }
+
     public T get(int i) {
 
         Node current = head;
@@ -47,8 +59,28 @@ public class ILinkedList<T> implements IList<T> {
     }
 
     @Override
+    public T remove(int i) {
+        return null;
+    }
+
+    @Override
+    public boolean remove(T t) {
+        return false;
+    }
+
+    @Override
     public boolean isEmpty() {
         return this.size==0;
+    }
+
+    @Override
+    public boolean contains(T t) {
+        return false;
+    }
+
+    @Override
+    public Iterator<T> iterator() {
+        return null;
     }
 
 

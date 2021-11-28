@@ -1,3 +1,5 @@
+import java.util.Iterator;
+
 public class IArrayList<T> implements IList<T> {
     private T[] buffer;
     private int nextFreeLoc;
@@ -28,6 +30,11 @@ public class IArrayList<T> implements IList<T> {
         }
     }
 
+    @Override
+    public T set(int i, T t) {
+        return null;
+    }
+
     public T get(int index) {
         if (index >= nextFreeLoc||index<0) {
             throw new IndexOutOfBoundsException();
@@ -35,7 +42,7 @@ public class IArrayList<T> implements IList<T> {
         return buffer[index];
     }
 
-    public void remove(T elem) {
+    public boolean remove(T elem) {
         boolean matchFound = false;
         for (int index = 0; index < nextFreeLoc && !matchFound; index++) {
             if (buffer[index].equals(elem)) {
@@ -49,18 +56,21 @@ public class IArrayList<T> implements IList<T> {
 
             }
         }
+        return matchFound;
     }
 
-    public void remove(int index) {
-
+    public T remove(int index) {
+        T output;
+        output = null;
         if (index <= nextFreeLoc) {
-
+            output = buffer[index];
             for (int i = index; i < nextFreeLoc; i++) {
                 buffer[i] = buffer[i + 1];
             }
 
             nextFreeLoc--;
         }
+        return output;
     }
 
 
@@ -72,6 +82,11 @@ public class IArrayList<T> implements IList<T> {
             }
         }
         return matchFound;
+    }
+
+    @Override
+    public Iterator<T> iterator() {
+        return null;
     }
 
     public boolean isEmpty() {
