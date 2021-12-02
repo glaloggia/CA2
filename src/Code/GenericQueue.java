@@ -1,3 +1,5 @@
+package Code;
+
 public class GenericQueue<T> implements IQueue{
 
     IList<T> queueData;

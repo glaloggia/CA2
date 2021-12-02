@@ -1,3 +1,5 @@
+package Code;
+
 public class GenericStack<T> implements IStack{
 
     IList<T> stackData;

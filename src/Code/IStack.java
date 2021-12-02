@@ -1,3 +1,5 @@
+package Code;
+
 public interface IStack<T> {
     T push(T object);
     T pop();

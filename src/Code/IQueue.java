@@ -1,3 +1,5 @@
+package Code;
+
 public interface IQueue<T>{
     void enque(T object);
     T dequeue();
