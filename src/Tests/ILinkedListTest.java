@@ -91,6 +91,8 @@ class ILinkedListTest {
 
     @org.junit.jupiter.api.Test
     void iterator() {
+        System.out.println("");
+        System.out.println("Iterator Test in LinkedList");
         for(Iterator<Integer> iterator = oneList.iterator(); iterator.hasNext(); ){
             int currElement = iterator.next();
             System.out.print(currElement + " ");

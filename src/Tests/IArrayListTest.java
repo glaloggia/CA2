@@ -67,6 +67,8 @@ class IArrayListTest {
 
     @Test
     void iterator() {
+        System.out.println("");
+        System.out.println("Iterator Test in ArrayList");
         for(Iterator<Integer> iterator = someAL.iterator(); iterator.hasNext(); ){
             int currElement = iterator.next();
             System.out.print(currElement + " ");
