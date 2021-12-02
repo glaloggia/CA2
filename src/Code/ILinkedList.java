@@ -1,6 +1,7 @@
 package Code;
 
 import java.util.Iterator;
+import java.util.NoSuchElementException;
 
 public class ILinkedList<T> implements IList<T> {
     Node head,tail;
@@ -170,7 +171,31 @@ public class ILinkedList<T> implements IList<T> {
 
     @Override
     public Iterator<T> iterator() {
-        return null;
+        return new ILinkedListIterator();
+    }
+
+    class ILinkedListIterator implements Iterator<T>{
+
+        private int cursor = 0;
+        private Node current = head;
+        private boolean pause = false;
+
+        @Override
+        public boolean hasNext() {
+            return cursor<size;
+        }
+
+        @Override
+        public T next() {
+            Node output;
+            if(cursor == size){
+                throw new NoSuchElementException();
+            }
+            output = current;
+            current = current.next;
+            cursor++;
+            return output.getData();
+        }
     }
 
     private class Node {

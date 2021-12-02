@@ -4,6 +4,8 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import Code.*;
 
+import java.util.Iterator;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class ILinkedListTest {
@@ -89,5 +91,9 @@ class ILinkedListTest {
 
     @org.junit.jupiter.api.Test
     void iterator() {
+        for(Iterator<Integer> iterator = oneList.iterator(); iterator.hasNext(); ){
+            int currElement = iterator.next();
+            System.out.print(currElement + " ");
+        }
     }
 }
