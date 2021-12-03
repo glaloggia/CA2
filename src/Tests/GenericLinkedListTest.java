@@ -8,9 +8,9 @@ import java.util.Iterator;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class ILinkedListTest {
+class GenericLinkedListTest {
 
-    ILinkedList<Integer> oneList = new ILinkedList<>();
+    GenericLinkedList<Integer> oneList = new GenericLinkedList<>();
 
     @org.junit.jupiter.api.BeforeEach
     void setUp() {
@@ -74,7 +74,7 @@ class ILinkedListTest {
 
     @org.junit.jupiter.api.Test
     void isEmpty() {
-        ILinkedList<Integer> auxList = new ILinkedList<>();
+        GenericLinkedList<Integer> auxList = new GenericLinkedList<>();
         Assertions.assertTrue(auxList.isEmpty());
     }
 

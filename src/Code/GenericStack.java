@@ -7,7 +7,7 @@ public class GenericStack<T> implements IStack, Iterable {
     IList<T> stackData;
 
     public GenericStack() {
-        this.stackData = new IArrayList<>();
+        this.stackData = new GenericArrayList<>();
     }
 
     @Override

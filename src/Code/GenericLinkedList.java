@@ -3,11 +3,11 @@ package Code;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
-public class ILinkedList<T> implements IList<T> {
+public class GenericLinkedList<T> implements IList<T> {
     Node head,tail;
     int size;
 
-    public ILinkedList() {
+    public GenericLinkedList() {
         head = null;
         tail = null;
         size = 0;

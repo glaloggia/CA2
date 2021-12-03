@@ -1,6 +1,6 @@
 package Tests;
 
-import Code.IArrayList;
+import Code.GenericArrayList;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -9,9 +9,9 @@ import java.util.Iterator;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class IArrayListTest {
+class GenericArrayListTest {
 
-    IArrayList<Integer> someAL = new IArrayList<>();
+    GenericArrayList<Integer> someAL = new GenericArrayList<>();
 
     @BeforeEach
     void setUp() {
@@ -25,7 +25,7 @@ class IArrayListTest {
     @Test
     @DisplayName("Add test, checking the empty property")
     void add1() {
-        IArrayList<Integer> auxList = new IArrayList<>();
+        GenericArrayList<Integer> auxList = new GenericArrayList<>();
         auxList.add(1);
         assertFalse(auxList.isEmpty());
     }
@@ -33,7 +33,7 @@ class IArrayListTest {
     @Test
     @DisplayName("Add Test, consulting the element")
     void add2() {
-        IArrayList<Integer> auxList = new IArrayList<>();
+        GenericArrayList<Integer> auxList = new GenericArrayList<>();
         auxList.add(1);
         assertEquals(1,auxList.get(0));
     }
@@ -77,7 +77,7 @@ class IArrayListTest {
 
     @Test
     void isEmpty() {
-        IArrayList<Integer> auxList =new IArrayList<>();
+        GenericArrayList<Integer> auxList =new GenericArrayList<>();
         assertTrue(auxList.isEmpty());
 
     }

@@ -3,14 +3,14 @@ package Code;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
-public class IArrayList<T> implements IList<T> {
+public class GenericArrayList<T> implements IList<T> {
     private T[] buffer;
     private int nextFreeLoc;
     private int currentCapacity;
 
     private static final int INITIAL_CAPACITY = 3;
 
-    public IArrayList() {
+    public GenericArrayList() {
         currentCapacity = INITIAL_CAPACITY;
         nextFreeLoc = 0;
         buffer = (T[]) new Object[currentCapacity];
@@ -121,7 +121,7 @@ public class IArrayList<T> implements IList<T> {
             data += " " + buffer[i] + ",";
         }
 
-        return "Code.IArrayList[" + data + " ]";
+        return "Code.GenericArrayList[" + data + " ]";
     }
     @Override
     public Iterator<T> iterator() {

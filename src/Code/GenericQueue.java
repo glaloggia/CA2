@@ -7,7 +7,7 @@ public class GenericQueue<T> implements IQueue,Iterable{
     IList<T> queueData;
 
     public GenericQueue() {
-        this.queueData = new IArrayList<>();
+        this.queueData = new GenericArrayList<>();
     }
 
     @Override
