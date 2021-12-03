@@ -1,26 +1,38 @@
 package Code;
 
-public class GenericStack<T> implements IStack{
+import java.util.Iterator;
+
+public class GenericStack<T> implements IStack, Iterable {
 
     IList<T> stackData;
 
+    public GenericStack() {
+        this.stackData = new IArrayList<>();
+    }
+
     @Override
-    public Object push(Object object) {
-        return null;
+    public void push(Object element) {
+        stackData.add(0,(T)element);
     }
 
     @Override
     public Object pop() {
-        return null;
+        return stackData.remove(0);
     }
 
     @Override
     public Object peek() {
-        return null;
+        return stackData.get(0);
     }
 
     @Override
     public boolean empty() {
-        return false;
+        return stackData.isEmpty();
     }
+
+    @Override
+    public Iterator<T> iterator() {
+        return stackData.iterator();
+    }
+
 }

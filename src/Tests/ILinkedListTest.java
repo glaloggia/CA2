@@ -18,13 +18,14 @@ class ILinkedListTest {
         oneList.add(2);
         oneList.add(3);
         oneList.add(4);
+        oneList.add(5);
     }
 
     @org.junit.jupiter.api.Test
     @DisplayName("Testing adding one element the end")
     void add1() {
         oneList.add(10);
-        Assertions.assertEquals(10,oneList.get(4));
+        Assertions.assertEquals(10,oneList.get(5));
     }
 
     @org.junit.jupiter.api.Test
@@ -49,7 +50,7 @@ class ILinkedListTest {
 
     @org.junit.jupiter.api.Test
     void size() {
-        Assertions.assertEquals(4,oneList.size());
+        Assertions.assertEquals(5,oneList.size());
     }
 
     @DisplayName("Remove an item from a position")

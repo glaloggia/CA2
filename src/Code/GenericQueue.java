@@ -1,26 +1,39 @@
 package Code;
 
-public class GenericQueue<T> implements IQueue{
+import java.util.Iterator;
+
+public class GenericQueue<T> implements IQueue,Iterable{
 
     IList<T> queueData;
 
-    @Override
-    public void enque(Object object) {
+    public GenericQueue() {
+        this.queueData = new IArrayList<>();
+    }
 
+    @Override
+    public void enqueue(Object element) {
+        queueData.add(queueData.size(), (T)element);
     }
 
     @Override
     public Object dequeue() {
-        return null;
+
+        return queueData.remove(0);
     }
 
     @Override
-    public Object firt() {
-        return null;
+    public Object first() {
+        return queueData.get(0);
     }
 
     @Override
     public boolean empty() {
-        return false;
+
+        return queueData.isEmpty();
+    }
+
+    @Override
+    public Iterator<T> iterator() {
+        return queueData.iterator();
     }
 }

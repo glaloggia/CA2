@@ -71,7 +71,7 @@ public class IArrayList<T> implements IList<T> {
         output = null;
         if (index <= nextFreeLoc) {
             output = buffer[index];
-            for (int i = index; i < nextFreeLoc; i++) {
+            for (int i = index; i < nextFreeLoc-1; i++) {
                 buffer[i] = buffer[i + 1];
             }
 
