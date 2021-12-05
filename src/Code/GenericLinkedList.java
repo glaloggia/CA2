@@ -43,8 +43,13 @@ public class GenericLinkedList<T> implements IList<T> {
                 auxNode = auxNode.next;
             }
             newNode = new Node(t);
-            auxNodePrev.next = newNode;
-            newNode.next = auxNode;
+            if(i==0){
+                newNode.next = auxNode;
+                head = newNode;
+            }else {
+                auxNodePrev.next = newNode;
+                newNode.next = auxNode;
+            }
         }
 
         this.size++;
@@ -67,11 +72,15 @@ public class GenericLinkedList<T> implements IList<T> {
             counter++;
         }
 
-        currentPrev.next = newNode;
+        newNode.next = current.next;
 
-        newNode.next = current;
+        if (counter != 0) {
+            currentPrev.next = newNode;
+        }else{
+            head = newNode;
+        }
 
-        this.size++;
+        if (i==size-1) tail = newNode;
 
         return t;
 
@@ -103,6 +112,7 @@ public class GenericLinkedList<T> implements IList<T> {
         Node current = head;
         Node currentPrev = current;
         int counter = 0;
+        T output;
 
         if (i >= this.size||i<0) throw new IndexOutOfBoundsException();
 
@@ -112,11 +122,22 @@ public class GenericLinkedList<T> implements IList<T> {
             counter++;
         }
 
-        currentPrev.next = current.next;
+        output = current.getData();
+
+        if(counter==0){
+            current = current.next;
+            head = current;
+        }else {
+            currentPrev.next = current.next;
+        }
+
+        if(counter==size-1){
+            tail = currentPrev;
+        }
 
         this.size--;
 
-        return current.getData();
+        return output;
     }
 
     @Override
@@ -172,6 +193,43 @@ public class GenericLinkedList<T> implements IList<T> {
     @Override
     public Iterator<T> iterator() {
         return new ILinkedListIterator();
+    }
+
+    @Override
+    public void rotate(int distance) {
+        Node aux, cursorPrev;
+        if (size>1){
+            if (distance>0) {
+                for(int counter = 0;counter<distance;counter++) {
+                    aux = head;
+                    cursorPrev = head;
+                    head = head.next;
+//This loop could be replaced if a previous-node pointer were part of the structure of the Node.
+                    while (cursorPrev != tail) {
+                        cursorPrev = cursorPrev.next;
+                    }
+                    cursorPrev.next = aux;
+                    aux.next = null;
+                    tail = aux;
+                }
+            }else if(distance<0){
+                distance = distance * -1;
+                for(int counter=0;counter<distance;counter++) {
+                    aux = tail;
+                    tail.next = head;
+                    cursorPrev = head;
+//This loop could be replaced if a previous-node pointer were part of the structure of the Node.
+                    while (cursorPrev.next != tail) {
+                        cursorPrev = cursorPrev.next;
+                    }
+                    tail = cursorPrev;
+                    cursorPrev.next = null;
+                    head = aux;
+                }
+            }
+        }
+
+
     }
 
     class ILinkedListIterator implements Iterator<T>{

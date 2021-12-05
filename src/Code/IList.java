@@ -71,4 +71,6 @@ public interface IList <T> extends Iterable<T> {
      * @return an iterator over the elements in this list in proper sequence
      */
     Iterator<T> iterator();
+
+    void rotate(int distance);
 }

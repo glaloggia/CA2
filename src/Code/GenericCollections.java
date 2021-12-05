@@ -64,4 +64,8 @@ public class GenericCollections {
             }
         }
     }
+
+    public static <T extends Comparable<T>>  void rotate2(IList<T> list, int distance){
+        list.rotate(distance);
+    }
 }

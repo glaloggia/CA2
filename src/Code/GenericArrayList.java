@@ -128,6 +128,33 @@ public class GenericArrayList<T> implements IList<T> {
         return new IArrayListIterator();
     }
 
+    @Override
+    public void rotate(int distance) {
+        T aux;
+        int counter = 0;
+        if(distance>0) {
+            while (counter < distance) {
+                aux = buffer[0];
+                for (int i = 0; i < size() - 1; i++) {
+                    buffer[i] = buffer[i + 1];
+                }
+                buffer[size() - 1] = aux;
+                counter++;
+            }
+        }else if (distance<0){
+            distance=distance*-1;
+            while (counter < distance) {
+                aux = buffer[size()-1];
+                for (int i = size()-1; i > 0 ; i--) {
+                    buffer[i] = buffer[i-1];
+                }
+                buffer[0] = aux;
+                counter++;
+            }
+        }
+
+    }
+
     class IArrayListIterator implements Iterator<T>{
         private int cursor = 0;
         /**
